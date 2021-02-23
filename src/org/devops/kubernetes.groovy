@@ -22,6 +22,7 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/"
     response = HttpReq('POST',apiUrl,deplyBody)
     println(response)
+    println(KUBECONFIG_CONTENT)
 }
 
 //删除deployment
