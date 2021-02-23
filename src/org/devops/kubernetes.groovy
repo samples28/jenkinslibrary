@@ -4,7 +4,7 @@ package org.devops
 //封装HTTP请求
 def HttpReq(reqType,reqUrl,reqBody){
     def apiServer = "https://lb.kubesphere.local:6443/apis/apps/v1"
-    withCredentials([kubeconfigContent(credentialsId: 'kubernetes-c', variable: 'KUBECONFIG_CONTENT')]) {
+    withCredentials([kubeconfigFile(credentialsId: 'kubernetes-c', variable: 'KUBECONFIG')]) {
       result = httpRequest customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/yaml'],
                                            [maskValue: false, name: 'Accept', value: 'application/yaml']], 
                 httpMode: reqType, 
