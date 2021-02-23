@@ -44,8 +44,5 @@ def GetDeployment(nameSpace,deployName){
     response = HttpReq('GET',apiUrl,'')
     return response
 }
-def test() {
-    println('KUBECONFIG_CONTENT')
 
 
-}
