@@ -10,6 +10,7 @@ def HttpReq(reqType,reqUrl,reqBody){
                 httpMode: reqType, 
                 consoleLogResponseBody: true,
                 ignoreSslErrors: true, 
+                validResponseCodes: '200:502',
                 requestBody: reqBody,
                 url: "${apiServer}/${reqUrl}"
                 //quiet: true
