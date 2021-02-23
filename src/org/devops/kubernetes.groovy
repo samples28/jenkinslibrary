@@ -45,7 +45,7 @@ def GetDeployment(nameSpace,deployName){
     return response
 }
 def test() {
-    println(KUBECONFIG_CONTENT)
+    println('KUBECONFIG_CONTENT')
 
 
 }
