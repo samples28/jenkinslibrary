@@ -22,7 +22,6 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/"
     response = HttpReq('POST',apiUrl,deplyBody)
     println(response)
-    println(KUBECONFIG_CONTENT)
 }
 
 //删除deployment
@@ -44,4 +43,9 @@ def GetDeployment(nameSpace,deployName){
     apiUrl = "namespaces/${nameSpace}/deployments/${deployName}"
     response = HttpReq('GET',apiUrl,'')
     return response
+}
+def test() {
+    println(KUBECONFIG_CONTENT)
+
+
 }
