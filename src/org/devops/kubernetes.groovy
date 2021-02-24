@@ -64,6 +64,6 @@ def GetDeployment(nameSpace,deployName){
 }
 def PatchUpdateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/${deployName}"
-    response = HttpReq('PATCH',apiUrl,deplyBody)
+    response = HttpReq2('PATCH',apiUrl,deplyBody)
     println(response)
 }
