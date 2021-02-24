@@ -18,6 +18,23 @@ def HttpReq(reqType,reqUrl,reqBody){
     }
     return result
 }
+def HttpReq2(reqType,reqUrl,reqBody){
+    def apiServer = "https://lb.kubesphere.local:6443/apis/apps/v1"
+    withCredentials([string(credentialsId: 'kubernetes-token', variable: 'kubernetestoken')]) {
+      result = httpRequest customHeaders: [[maskValue: true, name: 'Authorization', value: "Bearer ${kubernetestoken}"],
+                                           [maskValue: false, name: 'Content-Type', value: 'application/strategic-merge-patch+json'], 
+                                           [maskValue: false, name: 'Accept', value: 'application/strategic-merge-patch+json']], 
+                httpMode: reqType, 
+                consoleLogResponseBody: true,
+                ignoreSslErrors: true, 
+                validResponseCodes: '200:502',
+                requestBody: reqBody,
+                url: "${apiServer}/${reqUrl}"
+                //quiet: true
+    }
+    return result
+}
+
 //新建Deployment
 def CreateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/"
