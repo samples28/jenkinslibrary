@@ -42,6 +42,7 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
     def dresponse = readJSON text: "${response.content}"
     comid = dresponse['kind']
     println(comid)
+    println("Content: "+response.content)
 
     println(response)
     
