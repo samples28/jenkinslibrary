@@ -43,7 +43,7 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
     comid = dresponse['kind']
     println(comid)
 
-   // println(response)
+    println(response)
     
 }
 
