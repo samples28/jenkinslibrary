@@ -39,7 +39,7 @@ def HttpReq2(reqType,reqUrl,reqBody){
 def CreateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/"
     response = HttpReq('POST',apiUrl,deplyBody)
-    def dresponse = readJSON text: "${response.content}"
+    def dresponse = readYAML text: "${response.content}"
     comid = dresponse['kind']
     println(kind)
 
