@@ -40,7 +40,10 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/"
     response = HttpReq('POST',apiUrl,deplyBody)
     def dresponse = readYaml text: "${response.content}"
-    comid = dresponse['metadata']['name']
+    comid = dresponse['spec']['template']['spec']['containers']['image']
+    
+    
+    
     println(comid)
     //println("Content: "+response.content)
 
