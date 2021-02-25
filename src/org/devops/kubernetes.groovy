@@ -16,7 +16,7 @@ def HttpReq(reqType,reqUrl,reqBody){
                 url: "${apiServer}/${reqUrl}"
                 //quiet: true
     }
-    //return result
+    return result
 }
 def HttpReq2(reqType,reqUrl,reqBody){
     def apiServer = "https://lb.kubesphere.local:6443/apis/apps/v1"
